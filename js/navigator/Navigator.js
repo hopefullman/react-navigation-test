@@ -27,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Welcome from '../page/Welcome';
 import Home from '../page/Home';
+import My from '../page/My';
 import Detail from '../page/Detail';
 import PageOne from '../page/PageOne';
 import PageTwo from '../page/PageTwo';
@@ -59,7 +60,16 @@ const Main=createStackNavigator({
         gesturesEnabled:true
       }
     }
-  }
+  },
+  My:{
+    screen:My,
+    navigationOptions:(props)=>{
+      return{
+        header:null,
+        gesturesEnabled:true
+      }
+    }
+  },
 },{}) ;
 const SwitchNavigator=createSwitchNavigator({
   Init:Init,

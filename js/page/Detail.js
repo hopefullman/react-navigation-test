@@ -19,7 +19,8 @@ import {
   BackHandler,
   TextInput,
   Modal,
-  AsyncStorage
+  AsyncStorage,
+  Button
 } from 'react-native';
 
 import {
@@ -29,6 +30,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
 import NavigatorBar from '../navigator/NavigatorBar';
 import Toast, {DURATION} from 'react-native-easy-toast';
 class Detail extends Component{
@@ -128,6 +130,7 @@ class Detail extends Component{
                     opacity={0.8}
                     textStyle={{color:'red'}}/>
     </ScrollView>
+    <Button title='go my' onPress={()=>{this.props.navigation.navigate('My')}}/>
     </Fragment>
   );
   }
