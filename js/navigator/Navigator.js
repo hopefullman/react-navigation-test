@@ -36,7 +36,7 @@ import PageFor from '../page/PageFor';
 import {createSwitchNavigator,createStackNavigator,createMaterialTopTabNavigator,createBottomTabNavigator,StackActions } from 'react-navigation';
 import {connect} from 'react-redux';
 import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-navigation-redux-helpers';
-
+export const rootCom = 'Init';    //设置根路由
 const Init=createStackNavigator({
   Welcome:{
     screen:Welcome,
@@ -71,11 +71,22 @@ const Main=createStackNavigator({
     }
   },
 },{}) ;
-const SwitchNavigator=createSwitchNavigator({
+export const RootNavigator=createSwitchNavigator({
   Init:Init,
   Main:Main
-},{navigationOptions:{
-      header:null
-    }})
+},
+{
+  navigationOptions:{
+    header:null
+  }
+})
+export const middleware = createReactNavigationReduxMiddleware(
+    state => state.nav,
+    'root'
+);
+const mapStateToProps = state => ({
+    state: state.nav,    //v2
+});
+const AppWithNavigationState = createReduxContainer(RootNavigator, 'root');
 
-export default SwitchNavigator;
+export default connect(mapStateToProps)(AppWithNavigationState);

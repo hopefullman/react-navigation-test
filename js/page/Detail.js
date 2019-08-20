@@ -90,7 +90,7 @@ class Detail extends Component{
     return (
       <Fragment>
     
-      <NavigatorBar style={{backgroundColor:'red'}} hide={false} statusBar={statusBar} title={params.labeltext} leftButton={leftButton}/>
+      <NavigatorBar style={{backgroundColor:'red'}} hide={false} statusBar={statusBar} title={params.DetailPageTitle} leftButton={leftButton}/>
       <ScrollView
         style={{flex:1}}>
       <Text>Detail</Text>
